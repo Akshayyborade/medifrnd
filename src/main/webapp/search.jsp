@@ -212,9 +212,9 @@ input:focus {
 			</nav>
 			<div class="cntr">
 
-				<form class="cntr-innr" method="get" action='search.php'>
-					<label class="search" for="inpt_search"> <input name='str'
-						id="inpt_search" type="search" action='search.php' require /> <input
+				<form class="cntr-innr" method="post" action='HospitalServlet'>
+					<label class="search" for="inpt_search"> <input name='searchQuery'
+						id="inpt_search" type="search" action='HospitalServlet' require /> <input
 						name='submit' id='inpt_submit' type='submit' value='Submit' />
 					</label>
 
@@ -228,16 +228,17 @@ input:focus {
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<div class="card card-sh">
-					<div class="card-body">
-						<!-- Title -->
-						<h3 class="h4">Hospital Name</h3>
-						<h6>Address</h6>
-						<h6>Contact</h6>
-						<p class="mt-4 mb-6">Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Ornare pretium placerat ut platea...</p>
+					<c:forEach var="hospital" items="${hospitals}">
+						<div class="card-body">
+							<!-- Title -->
+							<h3 class="h4">${hospital.hospitalName}</h3>
+							<h6>${hospital.city}</h6>
+							<h6>${hospital.contact}</h6>
+							<p class="mt-4 mb-6">${hospital.address}</p>
 
-						<a href="#" class="btn btn-sm btn-primary"> Learn more </a>
-					</div>
+							<a href="#" class="btn btn-sm btn-primary"> Learn more </a>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 
