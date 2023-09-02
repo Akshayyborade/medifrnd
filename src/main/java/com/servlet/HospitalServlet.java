@@ -34,7 +34,6 @@ public class HospitalServlet extends HttpServlet {
         request.setAttribute("hospitals", hospitals);
 
         // Forward to the search.jsp to display the filtered results
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/search.jsp");
-        dispatcher.forward(request, response);
+       
     }
 }

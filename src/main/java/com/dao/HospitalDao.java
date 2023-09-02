@@ -15,7 +15,7 @@ public class HospitalDao {
 
     public List<Hospitals> performSearch(String searchQuery) {
         try (Session session = sessionFactory.openSession()) {
-            String hql = "FROM medifrnd WHERE hospitalName LIKE :query OR city LIKE :query OR address LIKE :query";
+            String hql = "FROM Hospitals WHERE hospitalName LIKE :query OR city LIKE :query OR address LIKE :query";
             Query<Hospitals> query = session.createQuery(hql, Hospitals.class);
             query.setParameter("query", "%" + searchQuery + "%"); // Use % for partial matching
             return query.getResultList();

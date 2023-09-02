@@ -1,3 +1,4 @@
+<%@page import="com.entity.Hospitals"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -228,17 +229,17 @@ input:focus {
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<div class="card card-sh">
-					<c:forEach var="hospital" items="${hospitals}">
+					<% Hospitals hos = (Hospitals)session.getAttribute("hospitals");  %>
 						<div class="card-body">
 							<!-- Title -->
-							<h3 class="h4">${hospital.hospitalName}</h3>
-							<h6>${hospital.city}</h6>
-							<h6>${hospital.contact}</h6>
-							<p class="mt-4 mb-6">${hospital.address}</p>
+							<h3 class="h4"><%=hos.getHospitalName() %></h3>
+							<h6><%=hos.getCity() %></h6>
+							<h6>$<%=hos.getContact() %></h6>
+							<p class="mt-4 mb-6"><%=hos.getAddress() %></p>
 
 							<a href="#" class="btn btn-sm btn-primary"> Learn more </a>
 						</div>
-					</c:forEach>
+			
 				</div>
 			</div>
 
